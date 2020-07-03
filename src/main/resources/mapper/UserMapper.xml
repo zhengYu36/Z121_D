@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zy.dao.UserDao">
+
+    <resultMap id="baseResultMap" type="com.zy.entity.User">
+        <id column="USER_ID" property="userId" jdbcType="INTEGER"/>
+        <result column="USER_NAME" property="userName" jdbcType="CHAR"/>
+        <result column="USER_PASSWORD" property="userPassword" jdbcType="CHAR"/>
+        <result column="BLOB_D" property="blobD" jdbcType="BLOB"/>
+        <result column="SCORE" property="score" jdbcType="DECIMAL"/>
+        <result column="BIRTHDAY" property="birthday" jdbcType="DATE"/>
+        <result column="AVG" property="avg" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <select id="queryList" resultType="com.zy.entity.User">
+        select USER_ID as userId,USER_NAME as userName, USER_PASSWORD as userPassword
+        from user where 1=1
+        <if test="userId != null and userId !=''">
+            and user_id = #{userId}
+        </if>
+    </select>
+
+    <select id="queryList2" resultMap="baseResultMap">
+        select *
+        from user where 1=1
+        <if test="userId != null and userId !=''">
+            and user_id = #{userId}
+        </if>
+    </select>
+
+    <insert id="insert">
+        insert into user(user_id,user_name,user_password)
+         values(#{userId},#{userName},#{userPassword})
+    </insert>
+
+    <delete id="delete">
+        delete from user where user_id = #{id}
+    </delete>
+
+    <update id="update">
+        update user
+        <set>
+            <if test="userName !=null and userName !=''">
+                USER_NAME = #{userName}
+            </if>
+
+            <if test="userPassword != null and userPassword !=''">
+                user_password = #{userPassword}
+            </if>
+
+            <if test="blobD != null">
+                BLOB_D = #{blobD}
+            </if>
+
+        </set>
+
+        where user_id=#{userId}
+    </update>
+
+</mapper>

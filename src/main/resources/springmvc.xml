@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <!-- 哪怕是你手动的注册了多个处理器，spring仍然只会处理一次,这个很不错哈. -->
+    <context:component-scan base-package="com.zy.controller">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+
+    <!-- 启动spring mvc注解 -->
+    <mvc:annotation-driven/>
+
+    <!-- 对静态资源的访问,就是说js请求后不用通过后台走一次,直接可以访问
+     因为 WEB-INF中的所有资源包括静态和动态都是要走后台的,所以这里来进行排除
+     当然如果不想要排除则可以把js等资源放到WEB-INF同级目录-->
+    <mvc:resources mapping="/js/**" location="/WEB-INF/js/"/>
+
+    <!-- 对模型视图添加前后缀 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/view/" p:suffix=".jsp"/>
+
+    <!-- 配置附件上传限制 -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+        <!-- 设定默认编码格式-->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!-- 设定文件上传的最大值5MB，5*1024*1024 5242880 -->
+        <property name="maxInMemorySize" value="52428"/>
+    </bean>
+
+    <!-- 开启框架验证 -->
+    <!--<mvc:annotation-driven validator="validator"/>
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <property name="validationMessageSource" ref="messageSource"/>
+    </bean>
+    &lt;!&ndash; 校验错误信息配置文件 &ndash;&gt;
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        &lt;!&ndash; 资源文件名 &ndash;&gt;
+        <property name="basename" value="classpath:validationMessages"/>
+        &lt;!&ndash; 对资源文件内容缓存时间，单位秒 &ndash;&gt;
+        <property name="fileEncodings" value="GBK"/>
+        <property name="defaultEncoding" value="GBK"/>
+        <property name="cacheSeconds" value="120"/>
+    </bean>-->
+
+</beans>
