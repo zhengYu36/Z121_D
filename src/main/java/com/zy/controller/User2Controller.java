@@ -26,7 +26,7 @@ public class User2Controller extends BaseController {
     public User sayHi(@RequestParam("name")String name){
         User user = new User();
         user.setName(name);
-        user.setName("xiaoyuge");
+        user.setName("xiaoyuge99999");
         return user;
     }
 
