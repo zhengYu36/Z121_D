@@ -1,6 +1,8 @@
 package com.zy.demo;
 
 import lombok.Data;
+import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
 
 /**
  * <ul>
@@ -12,17 +14,12 @@ import lombok.Data;
  *
  * @author zhengyu
  */
-@Data
+
 public class TestDataAnno {
 
-    private String name;
-    private int gae;
+    @Test
+    public void oneSqlSession() {
 
-    public String getName() {
-        if(this.name == null){
-            this.name = "郑宇";
-        }
-        return this.name;
     }
 
 }

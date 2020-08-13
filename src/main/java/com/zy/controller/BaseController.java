@@ -1,7 +1,6 @@
 package com.zy.controller;
 
 import org.springframework.web.bind.ServletRequestDataBinder;
-import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,12 +14,14 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author zhengyu
  */
-public class BaseController extends MultiActionController {
 
-    @Override
+//关于实行  MultiActionController 和拦截器有啥子区别
+public class BaseController {
+//public class BaseController extends MultiActionController {
+/*    @Override
     protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception {
-
         System.out.println("initBinder start...");
         super.initBinder(request, binder);
     }
+}*/
 }

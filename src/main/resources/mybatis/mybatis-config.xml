@@ -9,7 +9,16 @@
          <setting name="defaultExecutorType" value="REUSE" />-->
         <!--  <setting name="logImpl" value="log4j" />-->
         <!-- 打印到控制台 -->
+        <setting name="cacheEnabled" value="true"/>
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
+
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor" />
+       <!-- <plugin interceptor="com.zy.interceptor.MyInterceptor">
+            <property name="name" value="123"/>
+        </plugin>-->
+
+    </plugins>
 
 </configuration>

@@ -1,10 +1,6 @@
 package com.zy.junit;
 
-import com.zy.demo.TestDataAnno;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
-
 /**
  * <ul>
  * <li>文件包名 : com.zy.junit</li>
@@ -16,13 +12,8 @@ import static org.junit.Assert.*;
  * @author zhengyu
  */
 public class TestDataAnnoTest {
-
     @Test
     public void getSet(){
-        TestDataAnno testDataAnno = new TestDataAnno();
-
-        String name = testDataAnno.getName();
-        System.out.println(name);
-
+        System.out.println("hello z121 come on!");
     }
 }

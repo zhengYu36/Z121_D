@@ -1,10 +1,15 @@
 package com.zy.junit;
 
-import com.zy.demo.tree.Node;
 import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * <ul>
@@ -18,16 +23,28 @@ import java.util.List;
  */
 public class ArrayTest {
 
-    //进行字符反转
-    @Test
-    public void test1() {
-        List<Node> list = new ArrayList<Node>() {
-            {
-                add(new Node(12));
-                add(new Node(22));
-                add(new Node(44));
+    public static void main(String[] args) throws Exception{
+
+        //通过网络协议进行数据的传递
+        RandomAccessFile aFile = new RandomAccessFile("E:/demo.txt", "rw");
+        FileChannel inChannel = aFile.getChannel();
+
+        ByteBuffer buf = ByteBuffer.allocate(48);
+
+        int bytesRead = inChannel.read(buf);
+        while (bytesRead != -1) {
+
+            System.out.println("Read " + bytesRead);
+            buf.flip();
+
+            while(buf.hasRemaining()){
+                System.out.print((char) buf.get());
             }
-        };
+
+            buf.clear();
+            bytesRead = inChannel.read(buf);
+        }
+        aFile.close();
 
     }
 }

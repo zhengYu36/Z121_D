@@ -26,4 +26,6 @@ public interface UserDao {
     User update(User user);
 
     User delete(Integer id);
+
+    User selectById(Integer id);
 }

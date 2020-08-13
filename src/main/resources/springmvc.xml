@@ -5,17 +5,16 @@
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 哪怕是你手动的注册了多个处理器，spring仍然只会处理一次,这个很不错哈. -->
     <context:component-scan base-package="com.zy.controller">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
 
     <!-- 启动spring mvc注解 -->
     <mvc:annotation-driven/>
@@ -38,21 +37,5 @@
         <!-- 设定文件上传的最大值5MB，5*1024*1024 5242880 -->
         <property name="maxInMemorySize" value="52428"/>
     </bean>
-
-    <!-- 开启框架验证 -->
-    <!--<mvc:annotation-driven validator="validator"/>
-    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
-        <property name="validationMessageSource" ref="messageSource"/>
-    </bean>
-    &lt;!&ndash; 校验错误信息配置文件 &ndash;&gt;
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        &lt;!&ndash; 资源文件名 &ndash;&gt;
-        <property name="basename" value="classpath:validationMessages"/>
-        &lt;!&ndash; 对资源文件内容缓存时间，单位秒 &ndash;&gt;
-        <property name="fileEncodings" value="GBK"/>
-        <property name="defaultEncoding" value="GBK"/>
-        <property name="cacheSeconds" value="120"/>
-    </bean>-->
 
 </beans>

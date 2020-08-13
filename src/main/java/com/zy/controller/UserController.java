@@ -1,5 +1,7 @@
 package com.zy.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.zy.entity.MHandleProphasePlan;
 import com.zy.entity.User;
 import com.zy.requestparam.vo.UserParamVo;
@@ -9,9 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,6 +30,7 @@ import java.util.List;
  * @author zhengyu
  */
 
+@RestController
 @Controller
 @RequestMapping("user/")
 public class UserController extends BaseController{
@@ -99,6 +100,22 @@ public class UserController extends BaseController{
     public String save(@RequestBody MHandleProphasePlan json) throws IOException {
         System.out.println("json value is:"+json);
         return "ok";
+    }
+
+
+    @RequestMapping(value = "/query2")
+    public List<User> query2(@RequestParam(value="page",defaultValue="1")Integer page,
+                             @RequestParam(value = "limit", defaultValue = "10") Integer limit) throws IOException {
+
+        //利用 PageHelper的分页操作
+        PageHelper.startPage(page,limit);
+        List<User> data = userService.query2(null);
+
+        PageInfo pageInfo = new PageInfo(data);
+
+        //System.out.println(pageInfo.getTotal());
+
+        return data;
     }
 
 }

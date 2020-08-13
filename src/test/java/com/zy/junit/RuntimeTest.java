@@ -18,13 +18,13 @@ public class RuntimeTest {
 
     @Test
     public void runtimeTest() throws Exception {
-        Runtime runtime = Runtime.getRuntime();
+       /* Runtime runtime = Runtime.getRuntime();
         Process process= runtime.exec("cmd /k start dir");
         if(process.waitFor() == 0){
             System.out.println("正常线程结束");
         }else{
             System.out.println(process);
         }
-        System.out.println("xxxx");
+        System.out.println("xxxx");*/
     }
 }
