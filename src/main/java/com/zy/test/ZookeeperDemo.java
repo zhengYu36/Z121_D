@@ -1,8 +1,15 @@
 package com.zy.test;
 
+import com.zy.dao.UserDao;
+import com.zy.entity.User;
 import org.apache.zookeeper.*;
+import org.springframework.http.ResponseEntity;
 
+import javax.ws.rs.core.Response;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -24,7 +31,7 @@ public class ZookeeperDemo {
 
         //我知道了，  /top/jinyong 是有一个父级，所以需要有父亲才行
         //String str = "/top/jinyong";
-        String str = "/FirstZnode2";
+        String str = "/abc/FirstZnode3";
 
         Watcher watcher = new Watcher() {
             @Override

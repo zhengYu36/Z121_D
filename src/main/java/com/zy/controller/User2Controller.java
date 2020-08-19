@@ -17,6 +17,7 @@ public class User2Controller extends BaseController {
     @RequestMapping("/query")
     public User sayHi(@RequestParam("name")String name){
         User user = new User();
+        System.out.println("xxxxx111");
         user.setName(name);
         user.setName("xiaoyuge99999");
         return user;
