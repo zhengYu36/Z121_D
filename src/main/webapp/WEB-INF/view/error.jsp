@@ -2,8 +2,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2>Hello World!</h2>
-<p>这是admin.jsp</p>
-<a href="shiro/logout">退出</a>
+<p>账户或密码错误.jsp</p>
 </body>
 </html>

@@ -18,6 +18,7 @@
 
     <!-- 启动spring mvc注解 -->
     <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
 
     <!-- 对静态资源的访问,就是说js请求后不用通过后台走一次,直接可以访问
      因为 WEB-INF中的所有资源包括静态和动态都是要走后台的,所以这里来进行排除

@@ -28,4 +28,6 @@ public interface UserDao {
     User delete(Integer id);
 
     User selectById(Integer id);
+
+    User selectByName(String name);
 }

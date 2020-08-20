@@ -6,6 +6,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * <ul>
@@ -23,7 +24,9 @@ public class ShiroController {
 
     //登录
     @RequestMapping("/login")
-    public String login(String username, String password) {
+    public ModelAndView login(String username, String password) {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("error");
         System.out.println(username + ":" + password);
         Subject currentUser = SecurityUtils.getSubject();
         if (!currentUser.isAuthenticated()) {
@@ -31,11 +34,15 @@ public class ShiroController {
             token.setRememberMe(true);
             try {
                 currentUser.login(token);
+                //可以通过这个方式返回view 页面
+                view.setViewName("admin");
             } catch (AuthenticationException ae) {
                 System.out.println("登录失败: " + ae.getMessage());
             }
         }
-        return "redirect:/admin.jsp";
+
+        return view;
+        //return "redirect:/admin.jsp";
     }
 
     //登出

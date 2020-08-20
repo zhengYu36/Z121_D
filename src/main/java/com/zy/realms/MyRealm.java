@@ -1,10 +1,13 @@
 package com.zy.realms;
 
+import com.zy.dao.UserDao;
+import com.zy.entity.User;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +19,9 @@ import java.util.Set;
  * 就是这样来的哈
  */
 public class MyRealm extends AuthorizingRealm {
+
+    @Autowired
+    UserDao userDao;
 
     //授权
     @Override
@@ -37,10 +43,17 @@ public class MyRealm extends AuthorizingRealm {
     //    认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+
         System.out.println("RealmForDouble认证中---->用户：" + token.getPrincipal());
+
         UsernamePasswordToken upToken = (UsernamePasswordToken) token;
-        String password = "123456";// 假设这是从数据库中查询到的用户密码
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(upToken.getUsername(), password, this.getName());
+
+        //获取用户信息
+        User user = userDao.selectByName(token.getPrincipal().toString());
+
+        //String password = "123456";// 假设这是从数据库中查询到的用户密码
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(upToken.getUsername(), user.getUserPassword(), this.getName());
+
         return info;
     }
 }

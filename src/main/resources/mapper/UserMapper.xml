@@ -66,4 +66,9 @@
         from user  where user_id = #{id}
     </select>
 
+    <select id="selectByName" resultMap="baseResultMap">
+        select USER_ID as userId,USER_NAME as userName, USER_PASSWORD as userPassword
+        from user  where user_name = #{name}
+    </select>
+
 </mapper>
