@@ -87,12 +87,12 @@
 
     <!--3. 配置 Realm-->
     <bean id="jdbcRealm" class="com.zy.realms.MyRealm">
-        <property name="credentialsMatcher">
+    <!--    <property name="credentialsMatcher">
             <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-                <!--定义加密的算法-->
+                &lt;!&ndash;定义加密的算法&ndash;&gt;
                 <property name="hashAlgorithmName" value="MD5"></property>
             </bean>
-        </property>
+        </property>-->
     </bean>
 
     <!--4. 配置 LifecycleBeanPostProcessor，用来管理shiro一些bean的生命周期-->
@@ -115,7 +115,6 @@
             <value>
                 /login.jsp = anon
                 /shiro/login = anon
-                /shiro/logout = logout
                 /** = authc
             </value>
         </property>

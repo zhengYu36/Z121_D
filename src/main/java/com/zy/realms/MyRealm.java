@@ -52,6 +52,7 @@ public class MyRealm extends AuthorizingRealm {
         User user = userDao.selectByName(token.getPrincipal().toString());
 
         //String password = "123456";// 假设这是从数据库中查询到的用户密码
+        //数据是1234
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(upToken.getUsername(), user.getUserPassword(), this.getName());
 
         return info;

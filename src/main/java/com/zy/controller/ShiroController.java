@@ -30,8 +30,9 @@ public class ShiroController {
         System.out.println(username + ":" + password);
         Subject currentUser = SecurityUtils.getSubject();
         if (!currentUser.isAuthenticated()) {
+            //表示还没有验证，需要进行验证
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
-            token.setRememberMe(true);
+            //token.setRememberMe(true);
             try {
                 currentUser.login(token);
                 //可以通过这个方式返回view 页面
@@ -39,6 +40,9 @@ public class ShiroController {
             } catch (AuthenticationException ae) {
                 System.out.println("登录失败: " + ae.getMessage());
             }
+        }else{
+            //直接进入admin页面
+            view.setViewName("admin");
         }
 
         return view;
@@ -47,10 +51,13 @@ public class ShiroController {
 
     //登出
     @RequestMapping("/logout")
-    public String logout() {
+    public ModelAndView logout() {
+        ModelAndView view = new ModelAndView();
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
         System.out.println("退出成功");
-        return "redirect:/login.jsp";
+
+        view.setViewName("logout");
+        return view;
     }
 }
