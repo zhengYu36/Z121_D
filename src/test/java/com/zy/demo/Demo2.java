@@ -6,7 +6,7 @@ package com.zy.demo;
  * <li>创建时间 : 2020/8/25 16:34</li>
  * <li>修改记录 : 无</li>
  * </ul>
- * 类说明： join()的用法
+ * 类说明： join()的用法是等待其他线程完成后才能执行后面的线程
  *
  * @author zhengyu
  */
@@ -44,6 +44,7 @@ public class Demo2 {
             }
         });
 
+        //线程开始
         t1.start();
         t3.start();
         t2.start();
