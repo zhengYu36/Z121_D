@@ -32,12 +32,13 @@ public class Test1 {
         
         // 6. 删除元素
         cache.remove("key1");
-        
+
+        /*
         Person p1 = new Person("小明",18,"杭州");
         Element pelement = new Element("xm", p1);
         cache.put(pelement);
         Element pelement2 = cache.get("xm");
-        System.out.println(pelement2.getObjectValue());
+        System.out.println(pelement2.getObjectValue());*/
         
         System.out.println(cache.getSize());
         

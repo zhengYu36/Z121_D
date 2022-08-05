@@ -1,4 +1,4 @@
-package com.zy.mapper;
+package com.zy.com.zy.mapper;
 
 import com.zy.entity.FeeBase;
 
