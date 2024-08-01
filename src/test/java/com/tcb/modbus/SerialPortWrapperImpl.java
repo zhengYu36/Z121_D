@@ -1,5 +1,7 @@
+/*
 package com.tcb.modbus;
 
+*/
 /**
  * Copyright (c) 2009-2020 Freedomotic Team http://www.freedomotic-iot.com
  * <p>
@@ -17,7 +19,8 @@ package com.tcb.modbus;
  * You should have received a copy of the GNU General Public License along with
  * Freedomotic; see the file COPYING. If not, see
  * <http://www.gnu.org/licenses/>.
- */
+ *//*
+
 
 import com.serotonin.modbus4j.serial.SerialPortWrapper;
 import jssc.SerialPort;
@@ -28,9 +31,11 @@ import org.slf4j.LoggerFactory;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+*/
 /**
  *
- */
+ *//*
+
 public class SerialPortWrapperImpl implements SerialPortWrapper {
 
     private static final Logger LOG = LoggerFactory.getLogger(SerialPortWrapperImpl.class);
@@ -125,3 +130,4 @@ public class SerialPortWrapperImpl implements SerialPortWrapper {
         //return SerialPort.PARITY_NONE;
     }
 }
+*/

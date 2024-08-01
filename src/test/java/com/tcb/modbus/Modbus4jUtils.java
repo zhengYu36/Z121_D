@@ -1,3 +1,4 @@
+/*
 package com.tcb.modbus;
  
 import com.serotonin.modbus4j.BatchRead;
@@ -12,17 +13,21 @@ import com.serotonin.modbus4j.ip.IpParameters;
 import com.serotonin.modbus4j.locator.BaseLocator;
 import com.serotonin.modbus4j.serial.SerialPortWrapper;
 
+*/
 /**
  * modbus通讯工具类,采用modbus4j实现
  * 
  * @author lxq
  * @dependencies modbus4j-3.0.3.jar
  * @website https://github.com/infiniteautomation/modbus4j
- */
+ *//*
+
 public class Modbus4jUtils {
-	/**
+	*/
+/**
 	 * 工厂。
-	 */
+	 *//*
+
 	static ModbusFactory modbusFactory;
 	static {
 		if (modbusFactory == null) {
@@ -30,15 +35,18 @@ public class Modbus4jUtils {
 		}
 	}
  
-	/**
+	*/
+/**
 	 * 获取master
 	 * 
 	 * @return
 	 * @throws ModbusInitException
-	 */
+	 *//*
+
 	public static ModbusMaster getMaster() throws ModbusInitException {
 
-	/*	IpParameters params = new IpParameters();
+	*/
+/*	IpParameters params = new IpParameters();
 		//params.setHost("modbus.dtuip.com+6651+VSIC20220505Y005+RTU");
 		params.setHost("modbus.dtuip.com");
 		params.setPort(6651);
@@ -50,7 +58,8 @@ public class Modbus4jUtils {
 		// modbusFactory.createAsciiMaster(wrapper);//ASCII 协议
 
 		ModbusMaster master = modbusFactory.createTcpMaster(params, false);// TCP 协议
-		master.init();*/
+		master.init();*//*
+
 		//SerialPortWrapper
 
 		//rtu的实现方式
@@ -64,7 +73,8 @@ public class Modbus4jUtils {
 		return master;
 	}
  
-	/**
+	*/
+/**
 	 * 读取[01 Coil Status 0x]类型 开关数据
 	 * 
 	 * @param slaveId
@@ -78,7 +88,8 @@ public class Modbus4jUtils {
 	 *             异常
 	 * @throws ModbusInitException
 	 *             异常
-	 */
+	 *//*
+
 	public static Boolean readCoilStatus(int slaveId, int offset)
 			throws ModbusTransportException, ErrorResponseException, ModbusInitException {
 		// 01 Coil Status
@@ -87,7 +98,8 @@ public class Modbus4jUtils {
 		return value;
 	}
  
-	/**
+	*/
+/**
 	 * 读取[02 Input Status 1x]类型 开关数据
 	 * 
 	 * @param slaveId
@@ -96,7 +108,8 @@ public class Modbus4jUtils {
 	 * @throws ModbusTransportException
 	 * @throws ErrorResponseException
 	 * @throws ModbusInitException
-	 */
+	 *//*
+
 	public static Boolean readInputStatus(int slaveId, int offset)
 			throws ModbusTransportException, ErrorResponseException, ModbusInitException {
 		// 02 Input Status
@@ -105,7 +118,8 @@ public class Modbus4jUtils {
 		return value;
 	}
  
-	/**
+	*/
+/**
 	 * 读取[03 Holding Register类型 2x]模拟量数据
 	 * 
 	 * @param slaveId
@@ -121,7 +135,8 @@ public class Modbus4jUtils {
 	 *             异常
 	 * @throws ModbusInitException
 	 *             异常
-	 */
+	 *//*
+
 	public static Number readHoldingRegister(int slaveId, int offset, int dataType)
 			throws ModbusTransportException, ErrorResponseException, ModbusInitException {
 		// 03 Holding Register类型数据读取
@@ -130,7 +145,8 @@ public class Modbus4jUtils {
 		return value;
 	}
  
-	/**
+	*/
+/**
 	 * 读取[04 Input Registers 3x]类型 模拟量数据
 	 * 
 	 * @param slaveId
@@ -146,7 +162,8 @@ public class Modbus4jUtils {
 	 *             异常
 	 * @throws ModbusInitException
 	 *             异常
-	 */
+	 *//*
+
 	public static Number readInputRegisters(int slaveId, int offset, int dataType)
 			throws ModbusTransportException, ErrorResponseException, ModbusInitException {
 		// 04 Input Registers类型数据读取
@@ -155,13 +172,15 @@ public class Modbus4jUtils {
 		return value;
 	}
  
-	/**
+	*/
+/**
 	 * 批量读取使用方法
 	 * 
 	 * @throws ModbusTransportException
 	 * @throws ErrorResponseException
 	 * @throws ModbusInitException
-	 */
+	 *//*
+
 	public static void batchRead() throws ModbusTransportException, ErrorResponseException, ModbusInitException {
  
 		BatchRead<Integer> batch = new BatchRead<Integer>();
@@ -177,11 +196,13 @@ public class Modbus4jUtils {
 		System.out.println(results.getValue(1));
 	}
  
-	/**
+	*/
+/**
 	 * 测试
 	 * 
 	 * @param args
-	 */
+	 *//*
+
 	public static void main(String[] args) {
 		try {
 			// 01测试
@@ -217,4 +238,4 @@ public class Modbus4jUtils {
 			e.printStackTrace();
 		}
 	}
-}
+}*/

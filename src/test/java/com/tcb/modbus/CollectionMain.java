@@ -1,3 +1,4 @@
+/*
 package com.tcb.modbus;
 
 import java.util.Arrays;
@@ -9,10 +10,12 @@ import com.serotonin.modbus4j.msg.ReadHoldingRegistersRequest;
 import com.serotonin.modbus4j.msg.ReadHoldingRegistersResponse;
 import com.serotonin.modbus4j.serial.SerialPortWrapper;
 
+*/
 /**
  * 通过串口解析MODBUS协议
  * @author yaohj
- */
+ *//*
+
 public class CollectionMain {
 
     // 设定MODBUS网络上从站地址
@@ -26,11 +29,17 @@ public class CollectionMain {
         //String commPortId = "COM11";
         SerialPortWrapper serialParameters = new
                 SerialPortWrapperImpl(commPortId, 9600, 8, 1, 0, 0, 0);
-        /* 创建ModbusFactory工厂实例 */
+        */
+/* 创建ModbusFactory工厂实例 *//*
+
         ModbusFactory modbusFactory = new ModbusFactory();
-        /* 创建ModbusMaster实例 */
+        */
+/* 创建ModbusMaster实例 *//*
+
         ModbusMaster master = modbusFactory.createRtuMaster(serialParameters);
-        /* 初始化 */
+        */
+/* 初始化 *//*
+
         try {
             System.out.println("step: 111");
             master.init();
@@ -43,13 +52,15 @@ public class CollectionMain {
         }
     }
 
-    /**
+    */
+/**
      * 读保持寄存器上的内容
      * @param master 主站
      * @param slaveId 从站地址
      * @param start 起始地址的偏移量
      * @param len 待读寄存器的个数
-     */
+     *//*
+
     private static void readHoldingRegistersTest(ModbusMaster master, int slaveId, int start, int len) {
         try {
             System.out.println("step: 222");
@@ -69,3 +80,4 @@ public class CollectionMain {
         }
     }
 }
+*/
